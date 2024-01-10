@@ -77,7 +77,8 @@ SECRET_KEY = 'django-insecure-)f&tjdo1q0lb8==dee*c4vtml0ynq%-s%#*-ei&a#%!jj2j4jb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['momments-243ce7c4d940.herokuapp.com'
+ALLOWED_HOSTS = [
+    # 'momments-243ce7c4d940.herokuapp.com'
     # os.environ.get('ALLOWED_HOST'),
     # 'localhost',
     # 'https://momments-243ce7c4d940.herokuapp.com/'

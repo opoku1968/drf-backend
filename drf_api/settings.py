@@ -19,7 +19,10 @@ if os.path.exists('env.py'):
     import drf_api.env as env
 
 CLOUDINARY_STORAGE = {
-    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL'),
+    'CLOUD_NAME': 'dyvawyclw',
+    'API_KEY': '671844874744122',
+    'API_SECRET': '3t4A0tour4OkTChJ8tZmeiMDPU0',
 }
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -42,6 +45,16 @@ if 'DEV' not in os.environ:
         'rest_framework.renderers.JSONRenderer',
     ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[(
+        'rest_framework.authentication.SessionAuthentication'
+        if 'DEV' in os.environ
+        else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
+    )]
+}
+
+os.environ['DEV'] = '1'
+
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
@@ -56,15 +69,18 @@ REST_AUTH_SERIALIZERS = {
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+
+SECRET_KEY = 'django-insecure-)f&tjdo1q0lb8==dee*c4vtml0ynq%-s%#*-ei&a#%!jj2j4jb'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    os.environ.get('ALLOWED_HOST'),
-    'localhost',
-    'https://momments-243ce7c4d940.herokuapp.com/'
+    # os.environ.get('ALLOWED_HOST'),
+    # 'localhost',
+    # 'https://momments-243ce7c4d940.herokuapp.com/'
 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
@@ -151,29 +167,37 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'drf_api.wsgi.application'
-SECRET_KEY = '3t4A0tour4OkTChJ8tZmeiMDPU0'
-CLOUDINARY_URL = 'cloudinary://671844874744122:3t4A0tour4OkTChJ8tZmeiMDPU0@dyvawyclw'
+# SECRET_KEY = '3t4A0tour4OkTChJ8tZmeiMDPU0'
+# CLOUDINARY_URL = 'cloudinary://671844874744122:3t4A0tour4OkTChJ8tZmeiMDPU0@dyvawyclw'
 DATABASE_URL = 'postgres://sdjddnxh:phx5IX0Vtov_A_xQcq-jHMkPCab4bvLD@tyke.db.elephantsql.com/sdjddnxh'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-print(os.environ.get('DATABASE_URL'))
+# print(os.environ.get('DATABASE_URL'))
 
-if 'DEV' in os.environ:
-     DATABASES = {
-         'default': {
-             'ENGINE': 'django.db.backends.sqlite3',
-             'NAME': BASE_DIR / 'db.sqlite3',
-         }
-     }
-else:
-     DATABASES = {
+# if 'DEV' in os.environ:
+#      DATABASES = {
+#          'default': {
+#              'ENGINE': 'django.db.backends.sqlite3',
+#              'NAME': BASE_DIR / 'db.sqlite3',
+#          }
+#      }
+# else:
+#      DATABASES = {
+#          'default': dj_database_url.parse('postgres://sdjddnxh:phx5IX0Vtov_A_xQcq-jHMkPCab4bvLD@tyke.db.elephantsql.com/sdjddnxh')
+#      }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+DATABASES = {
          'default': dj_database_url.parse('postgres://sdjddnxh:phx5IX0Vtov_A_xQcq-jHMkPCab4bvLD@tyke.db.elephantsql.com/sdjddnxh')
      }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

@@ -152,7 +152,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'drf_api.wsgi.application'
 SECRET_KEY = '3t4A0tour4OkTChJ8tZmeiMDPU0'
-
+CLOUDINARY_URL = 'cloudinary://671844874744122:3t4A0tour4OkTChJ8tZmeiMDPU0@dyvawyclw'
 
 
 # Database

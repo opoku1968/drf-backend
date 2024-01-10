@@ -153,6 +153,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'drf_api.wsgi.application'
 SECRET_KEY = '3t4A0tour4OkTChJ8tZmeiMDPU0'
 CLOUDINARY_URL = 'cloudinary://671844874744122:3t4A0tour4OkTChJ8tZmeiMDPU0@dyvawyclw'
+DATABASE_URL = 'postgres://sdjddnxh:phx5IX0Vtov_A_xQcq-jHMkPCab4bvLD@tyke.db.elephantsql.com/sdjddnxh'
 
 
 # Database

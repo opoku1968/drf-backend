@@ -84,7 +84,8 @@ ALLOWED_HOSTS = [
     # 'https://momments-243ce7c4d940.herokuapp.com/'
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
 
 # if 'CLIENT_ORIGIN' in os.environ:
 #     CORS_ALLOWED_ORIGINS = [

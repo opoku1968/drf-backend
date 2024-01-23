@@ -84,14 +84,16 @@ ALLOWED_HOSTS = [
     # 'https://momments-243ce7c4d940.herokuapp.com/'
 ]
 
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-else:
-     CORS_ALLOWED_ORIGIN_REGEXES = [
-         r"^https://.*\.gitpod\.io$",
-     ]
+CORS_ALLOW_ALL_ORIGINS = True
+
+# if 'CLIENT_ORIGIN' in os.environ:
+#     CORS_ALLOWED_ORIGINS = [
+#         os.environ.get('CLIENT_ORIGIN')
+#     ]
+# else:
+#      CORS_ALLOWED_ORIGIN_REGEXES = [
+#          r"^https://.*\.gitpod\.io$",
+#      ]
 
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
